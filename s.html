@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Sayyam 🎉</title>
+  <style>
+    /* Professional, legible system font stack */
+    :root {
+      --green: #7ec850;
+      --dark-green: #3a7d2d;
+      --gold: #ffd700;
+      --charcoal: #2e2e2e;
+      --shadow: rgba(0,0,0,0.5);
+    }
+    html, body {
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      /* Fallback gradient */
+      background: linear-gradient(180deg, var(--green), var(--dark-green));
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Optional hero image: place /images/grass.jpg in your repo. If not present, gradient shows. */
+    .hero {
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.55)),
+        url('./images/grass.jpg') center/cover no-repeat;
+      padding: 60px 20px;
+      border-bottom: 5px solid var(--dark-green);
+    }
+    .hero h1 {
+      font-size: 2.8em;
+      margin: 0 0 10px;
+      color: var(--green);
+      text-shadow: 3px 3px #000;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #e8ffe8;
+    }
+    section {
+      padding: 30px 16px 40px;
+    }
+    .grid {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px var(--shadow);
+      text-align: left;
+    }
+    .card h2 {
+      color: var(--gold);
+      margin: 0 0 12px;
+    }
+    .card p {
+      color: #f1fff1;
+      line-height: 1.6;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 12px;
+      background-color: var(--green);
+      border: 3px solid var(--dark-green);
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      color: #000;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+    .cta:hover {
+      background-color: #5fa63d;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .gift-output {
+      margin-top: 14px;
+      font-weight: 700;
+      color: #00ffea;
+    }
+    .note {
+      background: rgba(255,255,255,0.08);
+      border-left: 4px solid var(--gold);
+      padding: 14px 16px;
+      border-radius: 10px;
+    }
+    /* Optional second image: tiny decorative divider. Place ./images/brick.png or remove this block */
+    .divider {
+      width: 120px;
+      height: 16px;
+      margin: 20px auto;
+      background: url('./images/brick.png') repeat-x center/contain;
+      opacity: 0.8;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    }
+    footer {
+      margin-top: auto;
+      background-color: var(--charcoal);
+      padding: 16px;
+      color: #ddd;
+      border-top: 5px solid var(--dark-green);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero with optional grass background -->
+  <header class="hero">
+    <h1>🎂 Happy Birthday, Sayyam! 🎂</h1>
+    <p>Step into your birthday world — crafted with care, inspired by Minecraft, and built to celebrate you.</p>
+  </header>
+
+  <section>
+    <div class="divider" aria-hidden="true"></div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Welcome to your world 🌍</h2>
+        <p>Today we celebrate your creativity, curiosity, and love for building. May your adventures be endless and your builds legendary.</p>
+      </div>
+
+      <div class="card">
+        <h2>Birthday wishes 🎮</h2>
+        <p>Wishing you joy, laughter, and epic sessions with friends — on and off the server. Keep stacking wins, one block at a time.</p>
+        <button class="cta" onclick="unlockGift()">Unlock your gift</button>
+        <p id="giftMessage" class="gift-output" aria-live="polite"></p>
+      </div>
+
+      <div class="card">
+        <h2>Message wall 🏰</h2>
+        <div class="note">
+          <p>Dear Sayyam, may your life be as adventurous as your Minecraft worlds — full of loyal friends, bold ideas, and endless creativity. Keep building your dreams, one block at a time. You’re celebrated today and cheered on always.</p>
+          <p style="margin-top:10px; color:#c8ffc8;">— With love, Dalvinder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Crafted with ❤️ by Dalvinder
+  </footer>
+
+  <script>
+    function unlockGift() {
+      // Unique gift: a randomized “enchanted loot” message plus a little sparkle animation
+      const gifts = [
+        "🎁 Diamond Sword of Friendship — sharp against doubt, strong for your squad.",
+        "🎁 Enchanted Pickaxe of Success — Efficiency IV for your goals.",
+        "🎁 Chest of Good Vibes — open for courage, kindness, and creative sparks.",
+        "🎁 Elytra of New Horizons — glide toward bold adventures all year."
+      ];
+      const msg = gifts[Math.floor(Math.random() * gifts.length)];
+      const out = document.getElementById("giftMessage");
+      out.textContent = msg;
+
+      // Lightweight sparkle effect
+      for (let i = 0; i < 12; i++) {
+        const s = document.createElement('span');
+        s.textContent = "✦";
+        s.style.position = "fixed";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 40 + 30 + "vh";
+        s.style.fontSize = (Math.random() * 18 + 10) + "px";
+        s.style.color = "#ffd700";
+        s.style.opacity = "0.9";
+        s.style.transition = "transform 1.2s ease, opacity 1.2s ease";
+        document.body.appendChild(s);
+        setTimeout(() => {
+          s.style.transform = "translateY(-40px)";
+          s.style.opacity = "0";
+        }, 50);
+        setTimeout(() => s.remove(), 1300);
+      }
+    }
+  </script>
+</body>
+</html>
